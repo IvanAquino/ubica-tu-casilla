@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    ubicatucasilla:
+      image: node:14.16.0
+      working_dir: /usr/src/app
+      environment: 
+        - PORT=3001
+        - MONGODB_URI=mongodb://mongo:27017/ubica_tu_casilla
+      volumes:
+        - .:/usr/src/app
+      links:
+        - mongo
+      depends_on:
+        - mongo
+      command: npm run dev
+      ports:
+        - 3001:3001
+  
+    mongo:
+      image: mongo:3.6.22
+      ports:
+        - "27017:27017"
+      volumes:
+        - "./volumes/mongo:/data/mongo"
+        - "./volumes/backups:/data/backups"
