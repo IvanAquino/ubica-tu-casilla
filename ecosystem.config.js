@@ -9,7 +9,8 @@ module.exports = {
       increment_var : 'PORT',
       env: {
         "PORT": 3000,
-        "NODE_ENV": "development"
+        "NODE_ENV": "development",
+        "MONGODB_URI": "mongodb://mongo:27017/ubica_tu_casilla",
       }
     }
   ]
